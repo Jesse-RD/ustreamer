@@ -519,14 +519,14 @@ static int _device_open_check_cap(us_device_s *dev) {
 		return -1;
 	}
 
-	if (!run->capture_mplane) {
-		int input = dev->input; // Needs a pointer to int for ioctl()
-		_D_LOG_INFO("Using input channel: %d", input);
-		if (us_xioctl(run->fd, VIDIOC_S_INPUT, &input) < 0) {
-			_D_LOG_ERROR("Can't set input channel");
-			return -1;
-		}
-	}
+	// if (!run->capture_mplane) {
+	// 	int input = dev->input; // Needs a pointer to int for ioctl()
+	// 	_D_LOG_INFO("Using input channel: %d", input);
+	// 	if (us_xioctl(run->fd, VIDIOC_S_INPUT, &input) < 0) {
+	// 		_D_LOG_ERROR("Can't set input channel");
+	// 		return -1;
+	// 	}
+	// }
 
 	if (dev->standard != V4L2_STD_UNKNOWN) {
 		_D_LOG_INFO("Using TV standard: %s", _standard_to_string(dev->standard));
